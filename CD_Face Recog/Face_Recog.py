@@ -20,7 +20,7 @@ except subprocess.CalledProcessError as e:
 
 # Function to display camera feed
 def display_camera_feed():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0, cv2.CAP_V4L)
 
     if not cap.isOpened():
         print("Error: Unable to open camera.")
