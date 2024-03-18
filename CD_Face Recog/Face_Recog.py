@@ -51,7 +51,7 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("face-trainner.yml")
 
-cap = cv2.VideoCapture(0) #Get vidoe feed from the Camera
+cap = cv2.VideoCapture(1) #Get vidoe feed from the Camera
 
 while(True):
 
