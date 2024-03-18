@@ -18,33 +18,6 @@ except subprocess.CalledProcessError as e:
     # Handle any errors that occur during command execution
     print(f"Error executing command: {e}")
 
-# Function to display camera feed
-def display_camera_feed():
-    cap = cv2.VideoCapture(-1)
-
-    if not cap.isOpened():
-        print("Error: Unable to open camera.")
-        return
-
-    cv2.namedWindow("Camera Feed", cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("Camera Feed", 640, 480)
-
-    while True:
-        ret, frame = cap.read()
-
-        if not ret:
-            print("Error: Unable to capture frame.")
-            break
-
-        cv2.imshow("Camera Feed", frame)
-
-        key = cv2.waitKey(1)
-        if key == ord('q'):
-            break
-
-    cap.release()
-    cv2.destroyAllWindows()
-
 labels = ["Nina"]
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
