@@ -16,6 +16,7 @@ cap = cv2.VideoCapture(0) #Get vidoe feed from the Camera
 while(True):
 
 	ret, img = cap.read() # Break video into frames 
+	print(img.shape)
 	gray  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #convert Video frame to Greyscale
 	faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5) #Recog. faces
 	for (x, y, w, h) in faces:
