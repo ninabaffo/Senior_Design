@@ -6,6 +6,18 @@ import os #To handle directories
 from PIL import Image #Pillow lib for handling images 
 import subprocess
 
+# Make camera script executable
+username = 'pizero2'
+command = f'sudo /home/{username}/.rpi-uvc-gadget.sh &'
+
+try:
+    # Execute the shell command
+    subprocess.run(command, shell=True, check=True)
+    print("Command executed successfully.")
+except subprocess.CalledProcessError as e:
+    # Handle any errors that occur during command execution
+    print(f"Error executing command: {e}")
+
 # Function to display camera feed
 def display_camera_feed():
     cap = cv2.VideoCapture(0)
@@ -32,18 +44,6 @@ def display_camera_feed():
 
     cap.release()
     cv2.destroyAllWindows()
-    
-# Make camera script executable
-username = 'pizero2'
-command = f'sudo /home/{username}/.rpi-uvc-gadget.sh &'
-
-try:
-    # Execute the shell command
-    subprocess.run(command, shell=True, check=True)
-    print("Command executed successfully.")
-except subprocess.CalledProcessError as e:
-    # Handle any errors that occur during command execution
-    print(f"Error executing command: {e}")
 
 labels = ["Nina"]
 
