@@ -6,6 +6,33 @@ import os #To handle directories
 from PIL import Image #Pillow lib for handling images 
 import subprocess
 
+# Function to display camera feed
+def display_camera_feed():
+    cap = cv2.VideoCapture(0)
+
+    if not cap.isOpened():
+        print("Error: Unable to open camera.")
+        return
+
+    cv2.namedWindow("Camera Feed", cv2.WINDOW_NORMAL)
+    cv2.resizeWindow("Camera Feed", 640, 480)
+
+    while True:
+        ret, frame = cap.read()
+
+        if not ret:
+            print("Error: Unable to capture frame.")
+            break
+
+        cv2.imshow("Camera Feed", frame)
+
+        key = cv2.waitKey(1)
+        if key == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+    
 # Make camera script executable
 username = 'pizero2'
 command = f'sudo /home/{username}/.rpi-uvc-gadget.sh &'
