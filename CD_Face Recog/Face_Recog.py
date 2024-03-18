@@ -4,6 +4,19 @@ import cv2 #For Image processing
 import numpy as np #For converting Images to Numerical array 
 import os #To handle directories 
 from PIL import Image #Pillow lib for handling images 
+import subprocess
+
+# Make camera script executable
+username = 'pizero2'
+command = f'/home/{username}/.rpi-uvc-gadget.sh &'
+
+try:
+    # Execute the shell command
+    subprocess.run(command, shell=True, check=True)
+    print("Command executed successfully.")
+except subprocess.CalledProcessError as e:
+    # Handle any errors that occur during command execution
+    print(f"Error executing command: {e}")
 
 labels = ["Nina"]
 
