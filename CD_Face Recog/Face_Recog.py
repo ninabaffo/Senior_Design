@@ -8,7 +8,7 @@ import subprocess
 
 # Make camera script executable
 username = 'pizero2'
-command = f'/home/{username}/.rpi-uvc-gadget.sh &'
+command = f'sudo /home/{username}/.rpi-uvc-gadget.sh &'
 
 try:
     # Execute the shell command
