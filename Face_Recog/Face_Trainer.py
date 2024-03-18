@@ -7,7 +7,7 @@ import PIL
 from PIL import Image #Pillow lib for handling images 
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-recognizer = cv2.face.LBPHFaceRecognizer_create()
+recognizer = cv2.createLBPHFaceRecognizer()
 
 Face_ID = -1 
 pev_person_name = ""
@@ -31,7 +31,7 @@ for root, dirs, files in os.walk(Face_Images): #go to the face image directory
 
 			
 			Gery_Image = Image.open(path).convert("L") # convert the image to greysclae using Pillow
-			Crop_Image = Gery_Image.resize( (550,550) , PIL.Image.Resampling.LANCZOS) #Crop the Grey Image to 550*550 (Make sure your face is in the center in all image)
+			Crop_Image = Gery_Image.resize( (550,550) , Image.ANTIALIAS) #Crop the Grey Image to 550*550 (Make sure your face is in the center in all image)
 			Final_Image = np.array(Crop_Image, "uint8")
 			#print(Numpy_Image)
 			faces = face_cascade.detectMultiScale(Final_Image, scaleFactor=1.5, minNeighbors=5) #Detect The face in all sample image 
