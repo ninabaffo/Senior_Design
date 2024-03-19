@@ -7,7 +7,8 @@ import PIL
 from PIL import Image #Pillow lib for handling images 
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-recognizer = cv2.createLBPHFaceRecognizer()
+#recognizer = cv2.createLBPHFaceRecognizer()
+recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 Face_ID = -1 
 pev_person_name = ""
