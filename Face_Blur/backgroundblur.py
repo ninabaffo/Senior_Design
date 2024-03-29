@@ -1,50 +1,96 @@
+import face_recognition
 import cv2
 import numpy as np
-import face_recognition
 
-# Function to blur everything except faces
-def blur_except_faces(frame):
-    # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
-    rgb_frame = frame[:, :, ::-1]
+# Get a reference to webcam #0 (the default one)
+video_capture = cv2.VideoCapture(0)
 
-    # Find all the faces and face encodings in the current frame of video
-    face_locations = face_recognition.face_locations(rgb_frame)
-    for (top, right, bottom, left) in face_locations:
-        # Blur everything except faces
-        frame[0:top, :] = cv2.blur(frame[0:top, :], (23, 23))  # Blur top region
-        frame[bottom:, :] = cv2.blur(frame[bottom:, :], (23, 23))  # Blur bottom region
-        frame[:, 0:left] = cv2.blur(frame[:, 0:left], (23, 23))  # Blur left region
-        frame[:, right:] = cv2.blur(frame[:, right:], (23, 23))  # Blur right region
+# Load a sample picture and learn how to recognize it.
+me_image = face_recognition.load_image_file("nina1.jpg")
+me_face_encoding = face_recognition.face_encodings(me_image)
 
-    return frame
+# Create arrays of known face encodings and their names
+known_face_encodings = [
+    me_face_encoding,
+]
+known_face_names = [
+    "Nina"
+]
 
-# Function to run the photobooth application
-def run_photobooth():
-    # Get a reference to the webcam (0 is usually the default webcam on MacBook)
-    video_capture = cv2.VideoCapture(0)
+# Initialize some variables
+face_locations = []
+face_encodings = []
+face_names = []
+process_this_frame = True
 
-    while True:
-        # Capture a photo
-        ret, frame = video_capture.read()
+while True:
+    # Grab a single frame of video
+    ret, frame = video_capture.read()
 
-        # Apply blurring except on faces
-        frame = blur_except_faces(frame)
+    # Only process every other frame of video to save time
+    if process_this_frame:
+        # Resize frame of video to 1/4 size for faster face recognition processing
+        small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
 
-        # Display the resulting image
-        cv2.imshow('Photobooth', frame)
+        # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
+        rgb_small_frame = small_frame[:, :, ::-1]
+        
+        # Find all the faces and face encodings in the current frame of video
+        face_locations = face_recognition.face_locations(rgb_small_frame)
+        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
-        # Check for user input to capture the photo or exit the application
-        key = cv2.waitKey(1)
-        if key == ord('c'):  # Example: 'c' to capture photo
-            # Save the photo or process it further
-            # ...
-            pass
-        elif key == ord('q'):  # Example: 'q' to quit
-            break
+        face_names = []
+        for face_encoding in face_encodings:
+            # See if the face is a match for the known face(s)
+            matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+            name = "Unknown"
 
-    # Release handle to the webcam
-    video_capture.release()
-    cv2.destroyAllWindows()
+            # # If a match was found in known_face_encodings, just use the first one.
+            # if True in matches:
+            #     first_match_index = matches.index(True)
+            #     name = known_face_names[first_match_index]
 
-# Run the photobooth application
-run_photobooth()
+            # Or instead, use the known face with the smallest distance to the new face
+            face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+            best_match_index = np.argmin(face_distances)
+            if matches[best_match_index]:
+                name = known_face_names[best_match_index]
+
+            face_names.append(name)
+
+    process_this_frame = not process_this_frame
+
+
+    # Display the results
+    for (top, right, bottom, left), name in zip(face_locations, face_names):
+        # Scale back up face locations since the frame we detected in was scaled to 1/4 size
+        top *= 4
+        right *= 4
+        bottom *= 4
+        left *= 4
+
+        # Blur the area that is not a coordinate
+        frame_copy = frame.copy()
+        frame_copy[0:top, :] = cv2.blur(frame_copy[0:top, :], (23, 23))  # Blur top region
+        frame_copy[bottom:, :] = cv2.blur(frame_copy[bottom:, :], (23, 23))  # Blur bottom region
+        frame_copy[:, 0:left] = cv2.blur(frame_copy[:, 0:left], (23, 23))  # Blur left region
+        frame_copy[:, right:] = cv2.blur(frame_copy[:, right:], (23, 23))  # Blur right region
+
+        # Draw a box around the face
+        cv2.rectangle(frame_copy, (left, top), (right, bottom), (0, 0, 255), 2)
+
+        # Draw a label with a name below the face
+        cv2.rectangle(frame_copy, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
+        font = cv2.FONT_HERSHEY_DUPLEX
+        cv2.putText(frame_copy, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+
+    # Display the resulting image
+    cv2.imshow('Video', frame_copy)
+
+    # Hit 'q' on the keyboard to quit!
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Release handle to the webcam
+video_capture.release()
+cv2.destroyAllWindows()
