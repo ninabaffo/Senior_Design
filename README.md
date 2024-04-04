@@ -9,10 +9,10 @@ The preview window uses XQuartz, download it on your local machine before runnin
 
 ##### Pi OS
 - Bullseye, 32-bit, no desktop
-- sudo apt update                    // do not upgrade 
+> sudo apt update                    // do not upgrade 
 
 ##### Git
-- sudo apt install -y git
+> sudo apt install -y git
 
 ##### Pip
 - sudo apt install python3-pip
@@ -55,8 +55,14 @@ The preview window uses XQuartz, download it on your local machine before runnin
 ##### build
 - sudo apt-get install build-essential \ cmake \ gfortran \ git \ wget \ curl \ graphicsmagick \ libgraphicsmagick1-dev \ libatlas-base-dev \ liblapack-dev \ libatlas3-base \ libavcodec-dev \ libavformat-dev \ libboost-all-dev \ libgtk2.0-dev \ libjpeg-dev \ liblapack-dev \ libswscale-dev \ pkg-config \ python3-dev \ python3-numpy \ python3-pip \ zip
 
-##### Dlib
-- sudo pip3 install dlib
+##### Dlib (this will take a while)
+- sudo pip3 install dlib       // i dont think we need this keeping here for now
+- git clone https://github.com/davisking/dlib.git
+- cd dlib
+- mkdir build; cd build; cmake ..; cmake --build .
+- cd ..
+- python3 setup.py install
+- At this point, you should be able to run python3 and type import dlib successfully.
 
 ##### face_recognition
 - sudo pip3 install --no-cache-dir face_recognition
