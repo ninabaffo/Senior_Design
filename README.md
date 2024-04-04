@@ -8,22 +8,22 @@ The solution is to use X11 forwarding when SSHing to the RPi. If you want to rea
 
 ### Pi OS
 Bullseye, 32-bit, no desktop
-> sudo apt update     // do not upgrade 
+sudo apt update     // do not upgrade 
 
 ### Git
-> sudo apt install -y git
+sudo apt install -y git
 
 ### Pip
-> sudo apt install python3-pip
+sudo apt install python3-pip
 
 ### Opencv
-> sudo apt install -y python3-opencv
-> sudo apt install -y opencv-data
-> sudo apt install libopencv-dev
+sudo apt install -y python3-opencv
+sudo apt install -y opencv-data
+sudo apt install libopencv-dev
 
 ### libcamera / rpicam
-> sudo apt install -y libcamera-dev libjpeg-dev libpng-dev
-> sudo apt install libavdevice-dev libavformat-dev libswresample-dev
+sudo apt install -y libcamera-dev libjpeg-dev libpng-dev
+sudo apt install libavdevice-dev libavformat-dev libswresample-dev
 > sudo apt install -y libboost-dev libgnutls28-dev openssl libtiff5-dev pybind11-dev
 > sudo apt install -y meson cmake
 > sudo apt install -y python3-yaml python3-ply
