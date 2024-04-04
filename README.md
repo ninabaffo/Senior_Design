@@ -80,8 +80,8 @@
 
 
 ### Things I'm looking into:
-##### Unifying picamera and cv2.VideoCapture into a single class with OpenCV to reduce the effects of I/O latency: https://pyimagesearch.com/2016/01/04/unifying-picamera-and-cv2-videocapture-into-a-single-class-with-opencv/
+###### Unifying picamera and cv2.VideoCapture into a single class with OpenCV to reduce the effects of I/O latency: https://pyimagesearch.com/2016/01/04/unifying-picamera-and-cv2-videocapture-into-a-single-class-with-opencv/
 
-##### Running the script in daemon mode so that the camera preview automatically starts when the Pi starts up: https://ritikk.medium.com/raspberry-pi-camera-live-streaming-step-by-step-setup-4476f5185847
+###### Running the script in daemon mode so that the camera preview automatically starts when the Pi starts up: https://ritikk.medium.com/raspberry-pi-camera-live-streaming-step-by-step-setup-4476f5185847
 
-##### Remote desktop connection is over USB cable. Instructions for enabling USB (ethernet) gadget mode on RPi 4 and RPi Zero 2W: https://github.com/charkster/rpi_gadget_mode
+###### Remote desktop connection is over USB cable. Instructions for enabling USB (ethernet) gadget mode on RPi 4 and RPi Zero 2W: https://github.com/charkster/rpi_gadget_mode
