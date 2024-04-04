@@ -65,7 +65,7 @@
 - At this point, you should be able to run python3 and type import dlib successfully.
 
 ##### face_recognition
-- sudo pip3 install --no-cache-dir face_recognition
+- pip3 install face_recognition
 
 ### To run this program: 
 - git clone https://github.com/ninabaffo/Senior_Design.git
