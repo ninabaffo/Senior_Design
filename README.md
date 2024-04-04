@@ -2,24 +2,25 @@
 The preview window uses XQuartz, download it on your local machine before running the code here: https://www.xquartz.org/
 
 ### ** Important **
-When you SSH into your pi, do 'ssh username@hostname.local -X' 
-If you SSH into your RPi without -x argument and try to display a frame (eg. cv2.imshow()), you will likely get an error. 
-The solution is to use X11 forwarding when SSHing to the RPi. If you want to read more about it, see here: https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi/?highlight=x11#ssh-ing-without-x11-forwarding
+- When you SSH into your pi, do 'ssh username@hostname.local -X' 
+- If you SSH into your RPi without -x argument and try to display a frame (eg. cv2.imshow()), you will likely get an error. 
+- The solution is to use X11 forwarding when SSHing to the RPi.
+- If you want to read more about it, see here: https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi/?highlight=x11#ssh-ing-without-x11-forwarding
 
 #### Pi OS
-Bullseye, 32-bit, no desktop
-sudo apt update     // do not upgrade 
+- Bullseye, 32-bit, no desktop
+- sudo apt update     // do not upgrade 
 
 #### Git
-sudo apt install -y git
+- sudo apt install -y git
 
 #### Pip
-sudo apt install python3-pip
+- sudo apt install python3-pip
 
 #### Opencv
-sudo apt install -y python3-opencv
-sudo apt install -y opencv-data
-sudo apt install libopencv-dev
+- sudo apt install -y python3-opencv
+- sudo apt install -y opencv-data
+- sudo apt install libopencv-dev
 
 #### libcamera / rpicam
 sudo apt install -y libcamera-dev libjpeg-dev libpng-dev
