@@ -70,9 +70,9 @@ The preview window uses XQuartz, download it on your local machine before runnin
 ##### To run this program: 
 - https://github.com/ninabaffo/Senior_Design.git
 - cd Senior_Design
-  To test the camera:
+###### To test the camera:
 - cd camScript
 - python3 trycam.py
-To run background blurring script:
+###### To run background blurring script:
 - cd Face_Blur
 - python3 backgroundblur.py
