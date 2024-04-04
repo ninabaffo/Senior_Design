@@ -32,6 +32,7 @@ The preview window uses XQuartz, download it on your local machine before runnin
 - sudo apt install libhdf5-dev libhdf5-103
 - sudo apt install libgtk-3-dev       // dont know if we need this or not, i think no
 - sudo apt install libatlas-base-dev liblapacke-dev gfortran
+- sudo apt-get install libopenblas-dev
 
 ##### Picamera2 
 - sudo apt install -y python3-picamera2
