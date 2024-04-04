@@ -9,10 +9,10 @@ The preview window uses XQuartz, download it on your local machine before runnin
 
 ##### Pi OS
 - Bullseye, 32-bit, no desktop
-> sudo apt update                    // do not upgrade 
+- sudo apt update                    // do not upgrade 
 
 ##### Git
-> sudo apt install -y git
+- sudo apt install -y git
 
 ##### Pip
 - sudo apt install python3-pip
@@ -66,3 +66,6 @@ The preview window uses XQuartz, download it on your local machine before runnin
 
 ##### face_recognition
 - sudo pip3 install --no-cache-dir face_recognition
+
+##### To run this program: 
+- 
