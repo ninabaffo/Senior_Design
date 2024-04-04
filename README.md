@@ -61,7 +61,7 @@
 - cd dlib
 - mkdir build; cd build; cmake ..; cmake --build .
 - cd ..
-- python3 setup.py install
+- sudo python3 setup.py install
 - At this point, you should be able to run python3 and type import dlib successfully.
 
 ##### face_recognition
