@@ -85,3 +85,5 @@
 ###### Running the script in daemon mode so that the camera preview automatically starts when the Pi starts up: https://ritikk.medium.com/raspberry-pi-camera-live-streaming-step-by-step-setup-4476f5185847
 
 ###### Remote desktop connection is over USB cable. Instructions for enabling USB (ethernet) gadget mode on RPi 4 and RPi Zero 2W: https://github.com/charkster/rpi_gadget_mode
+
+###### Opencv server, might be useful for faster image processing? : https://github.com/TheTridentGuy/opencv-fpv-server/blob/main/server.py
