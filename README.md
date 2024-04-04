@@ -10,13 +10,13 @@ The preview window uses XQuartz, download it on your local machine before runnin
 ##### Pi OS
 - Bullseye, 32-bit, no desktop
 
-> # Installations
+> ##### Installations
 > sudo apt update                    // do not upgrade !
 
-> # Git
+> ##### Git
 > sudo apt install -y git
 
-> # Pip
+> ##### Pip
 > sudo apt install python3-pip
 
 > # Opencv
