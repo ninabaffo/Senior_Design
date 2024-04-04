@@ -7,22 +7,22 @@ The preview window uses XQuartz, download it on your local machine before runnin
 - The solution is to use X11 forwarding when SSHing to the RPi.
 - If you want to read more about it, see here: https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi/?highlight=x11#ssh-ing-without-x11-forwarding
 
-###### Pi OS
+##### Pi OS
 - Bullseye, 32-bit, no desktop
 - sudo apt update                    // do not upgrade 
 
-###### Git
+##### Git
 - sudo apt install -y git
 
-#### Pip
+##### Pip
 - sudo apt install python3-pip
 
-#### Opencv
+##### Opencv
 - sudo apt install -y python3-opencv
 - sudo apt install -y opencv-data
 - sudo apt install libopencv-dev
 
-#### libcamera / rpicam
+##### libcamera / rpicam
 - sudo apt install -y libcamera-dev libjpeg-dev libpng-dev
 - sudo apt install libavdevice-dev libavformat-dev libswresample-dev
 - sudo apt install -y libboost-dev libgnutls28-dev openssl libtiff5-dev pybind11-dev
@@ -33,17 +33,17 @@ The preview window uses XQuartz, download it on your local machine before runnin
 - sudo apt install libgtk-3-dev       // dont know if we need this or not, i think no
 - sudo apt install libatlas-base-dev liblapacke-dev gfortran
 
-#### Picamera2 
+##### Picamera2 
 - sudo apt install -y python3-picamera2
 - sudo apt install -y python3-opengl
 
-#### codeblocks 
+##### codeblocks 
 - sudo apt install codeblocks
 
-####  v4l2-utils 
+#####  v4l2-utils 
 - sudo apt install v4l2loopback-dkms v4l2loopback-utils ffmpeg
 
-#### Gstreamer for pipeline
+##### Gstreamer for pipeline
 - sudo apt-get install gstreamer1.0-plugins-good
 - sudo apt-get install gstreamer1.0-tools
 - sudo apt install python3-pip python3-yaml libyaml-dev python3-ply python3-jinja2
