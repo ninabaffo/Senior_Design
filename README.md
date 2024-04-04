@@ -1,5 +1,5 @@
 ### Mac OS users
-The preview window uses XQuartz, download it on your local machine before running the code here: https://www.xquartz.org/
+- The preview window uses XQuartz, download it on your local machine before running the code here: https://www.xquartz.org/
 
 ### ** Important **
 - When you SSH into your pi, do 'ssh username@hostname.local -X' 
