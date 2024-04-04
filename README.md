@@ -1,7 +1,7 @@
-# Mac OS users
+## Mac OS users
 The preview window uses XQuartz, download it on your local machine before running the code here: https://www.xquartz.org/
 
-# ** Important **
+## ** Important **
 When you SSH into your pi, do 'ssh username@hostname.local -X' 
 If you SSH into your RPi without -x argument and try to display a frame (eg. cv2.imshow()), you will likely get an error. 
 The solution is to use X11 forwarding when SSHing to the RPi. If you want to read more about it, see here: https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi/?highlight=x11#ssh-ing-without-x11-forwarding
