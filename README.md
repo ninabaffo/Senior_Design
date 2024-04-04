@@ -46,12 +46,6 @@ The preview window uses XQuartz, download it on your local machine before runnin
 #### Gstreamer for pipeline
 - sudo apt-get install gstreamer1.0-plugins-good
 - sudo apt install python3-pip python3-yaml libyaml-dev python3-ply python3-jinja2
-- sudo apt install libx264-dev libjpeg-dev libgstreamer1.0-dev \
-     libgstreamer-plugins-base1.0-dev \
-     libgstreamer-plugins-bad1.0-dev \
-     gstreamer1.0-plugins-ugly \
-     gstreamer1.0-tools \
-     gstreamer1.0-gl \
-     gstreamer1.0-gtk3
+- sudo apt install libx264-dev libjpeg-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-ugly gstreamer1.0-tools gstreamer1.0-gl gstreamer1.0-gtk3
 
 
