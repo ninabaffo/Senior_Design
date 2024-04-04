@@ -68,7 +68,7 @@ The preview window uses XQuartz, download it on your local machine before runnin
 - sudo pip3 install --no-cache-dir face_recognition
 
 ##### To run this program: 
-- https://github.com/ninabaffo/Senior_Design.git
+- git clone https://github.com/ninabaffo/Senior_Design.git
 - cd Senior_Design
 ###### To test the camera:
 - cd camScript
