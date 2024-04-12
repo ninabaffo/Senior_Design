@@ -6,9 +6,9 @@ from picamera2 import Picamera2  # this library is how we grab the frame
 piCam = Picamera2() # create camera object 
 
 # set camera settings 
-piCam.preview_configuration.main.size=(640, 360)
+piCam.preview_configuration.main.size=(420, 340)
 piCam.preview_configuration.main.format = "RGB888"
-piCam.preview_configuration.controls.FrameRate=30
+piCam.preview_configuration.controls.FrameRate=10
 piCam.preview_configuration.align()
 piCam.configure("preview")
 piCam.start()
@@ -27,7 +27,7 @@ while True:
     cv2.putText(frame,str(int(fps)), pos, font, 1.5, myColor, weight)
 
     # Compress the frame using LZO
-    compressed_frame = lzo.compress(frame.tobytes())
+    compressed_frame = lzo.compress(frame.tobytes(), level=1)
 
     # Convert back to numpy array
     decompressed_frame = np.frombuffer(lzo.decompress(compressed_frame), dtype=np.uint8)
