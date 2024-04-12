@@ -1,5 +1,6 @@
 import cv2  # library that allows us to interact with the camera
 import time
+import lzo
 from picamera2 import Picamera2  # this library is how we grab the frame 
 piCam = Picamera2() # create camera object 
 
@@ -23,7 +24,16 @@ while True:
     
     # print frames per second on video 
     cv2.putText(frame,str(int(fps)), pos, font, 1.5, myColor, weight)
-    cv2.imshow("piCam", frame)  # display the frame
+
+    # Compress the frame using LZO
+    compressed_frame = lzo.compress(frame.tobytes())
+
+    # Convert back to numpy array
+    decompressed_frame = np.frombuffer(lzo.decompress(compressed_frame), dtype=np.uint8)
+    decompressed_frame = decompressed_frame.reshape(frame.shape)
+
+    # Display the decompressed frame
+    cv2.imshow("piCam", decompressed_frame)  # display the frame
 
     if cv2.waitKey(1)==ord('q'):    # press 'q' to exit out of the camera preview
         break
