@@ -13,7 +13,7 @@ piCam.preview_configuration.align()
 piCam.configure("preview")
 piCam.start()
 fps=0
-pos=(30,60)
+pos=(60,60)
 font=cv2.FONT_HERSHEY_COMPLEX
 height=1.5
 myColor=(0,0,255)
