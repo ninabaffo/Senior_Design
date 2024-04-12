@@ -6,7 +6,7 @@ piCam = Picamera2() # create camera object
 # set camera settings 
 piCam.preview_configuration.main.size=(1280,720)
 piCam.preview_configuration.main.format = "RGB888"
-piCam.preview_configuration.controls.FrameRate=60
+piCam.preview_configuration.controls.FrameRate=10
 piCam.preview_configuration.align()
 piCam.configure("preview")
 piCam.start()
