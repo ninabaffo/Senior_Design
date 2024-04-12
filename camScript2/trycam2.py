@@ -4,9 +4,9 @@ from picamera2 import Picamera2  # this library is how we grab the frame
 piCam = Picamera2() # create camera object 
 
 # set camera settings 
-piCam.preview_configuration.main.size=(400, 400)
+piCam.preview_configuration.main.size=(700, 400)
 piCam.preview_configuration.main.format = "RGB888"
-piCam.preview_configuration.controls.FrameRate=10
+piCam.preview_configuration.controls.FrameRate=1
 piCam.preview_configuration.align()
 piCam.configure("preview")
 piCam.start()
