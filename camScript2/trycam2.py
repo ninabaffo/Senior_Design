@@ -1,5 +1,6 @@
 import cv2  # library that allows us to interact with the camera
 import time
+import numpy as np
 import lzo
 from picamera2 import Picamera2  # this library is how we grab the frame 
 piCam = Picamera2() # create camera object 
