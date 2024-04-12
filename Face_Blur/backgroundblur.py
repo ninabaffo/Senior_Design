@@ -3,7 +3,7 @@ from picamera2 import Picamera2
 import face_recognition
 
 picam2 = Picamera2()
-picam2.preview_configuration.main.size = (320, 240)  # Set resolution to 640x48>
+picam2.preview_configuration.main.size = (320, 240)  # Set resolution
 picam2.preview_configuration.main.format = "RGB888"
 picam2.preview_configuration.align()
 picam2.configure("preview")
@@ -12,7 +12,7 @@ picam2.start()
 while True:
     frame = picam2.capture_array()
 
-    # Convert the image from BGR color (which OpenCV uses) to RGB color (which >
+    # Convert the image from RGB color
     rgb_frame = frame[:, :, ::-1]
 
     # Find all the faces and face encodings in the current frame of video
@@ -62,26 +62,6 @@ while True:
 
     cv2.imshow("Camera", frame)
     if cv2.waitKey(1) == ord('q'):
-        break
-
-cv2.destroyAllWindows()
-'''
-
-''' 
-import cv2
-from picamera2 import Picamera2
-
-picam2 = Picamera2()
-picam2.preview_configuration.main.size = (800,800)
-picam2.preview_configuration.main.format = "RGB888"
-picam2.preview_configuration.align()
-picam2.configure("preview")
-picam2.start()
-
-while True:
-    im= picam2.capture_array()
-    cv2.imshow("Camera", im)
-    if cv2.waitKey(1)==ord('q'):
         break
 
 cv2.destroyAllWindows()
