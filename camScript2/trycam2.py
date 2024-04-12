@@ -10,14 +10,19 @@ piCam.preview_configuration.controls.FrameRate=30
 piCam.preview_configuration.align()
 piCam.configure("preview")
 piCam.start()
-
+fps=0
+pos=(30,60)
+font=cv2.FONT_HERSHEY_COMPLEX
+height=1.5
+myColor=(0,0,255)
+weight=3
 while True:
     # measure framerate 
     tStart=time.time()
     frame=piCam.capture_array() # grab the frame 
     
     # print frames per second on video 
-    cv2.putText(frame,str(int(fps)), (30,60), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,0,255), 3)
+    cv2.putText(frame,str(int(fps)), pos, font, 1.5, myColor, weight)
     cv2.imshow("piCam", frame)  # display the frame
 
     if cv2.waitKey(1)==ord('q'):    # press 'q' to exit out of the camera preview
