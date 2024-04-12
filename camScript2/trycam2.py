@@ -27,7 +27,7 @@ while True:
     cv2.putText(frame,str(int(fps)), pos, font, 1.5, myColor, weight)
 
     # Compress the frame using LZO
-    compressed_frame = lzo.compress(frame.tobytes(), level=1)
+    compressed_frame = lzo.compress(frame.tobytes())
 
     # Convert back to numpy array
     decompressed_frame = np.frombuffer(lzo.decompress(compressed_frame), dtype=np.uint8)
